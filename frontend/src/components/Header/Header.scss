@@ -1,0 +1,39 @@
+.Header {
+    &__head {        
+        width:100%;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        height: 64px;
+        padding: 3px 3px;
+        margin: 0px auto;
+    }
+
+    &__logo {
+        background-image: 
+        url(
+        "../../assets/images/logo-film.png");
+        background-size: "cover";
+        width: 280px;
+        height: 65px;
+        margin-top: 3px;
+        font-size:50px;
+        background-repeat:no-repeat;
+        padding-left: 20px;
+    }
+
+    &__call {
+        width: 50%;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        top: 30%;
+    }
+
+    &__login {
+        width: 50%;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        top: 30%;
+    }
+}

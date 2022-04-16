@@ -1,0 +1,40 @@
+.Footer {
+    display: flex;
+    position: fixed;
+    margin-top:calc(5% + 60px);
+    bottom: 0;
+    height: 60px;
+    padding: 50px;
+    padding-left: 185px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #fff;
+    background-color: #272d3c;
+    width: 100%;
+    text-align: center;
+
+    &__logo {
+        background-image: 
+        url(
+        "../../assets/images/logo-film.png");
+        background-size: "cover";
+        width: 280px;
+        height: 65px;
+        margin-top: 3px;
+        font-size:50px;
+        background-repeat:no-repeat;
+        width: 50%;
+    }
+
+    &__contact {
+        font-size: 22px;
+        font-weight: 800;
+    }
+
+    &__address {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+}
