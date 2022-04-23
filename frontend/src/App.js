@@ -7,7 +7,6 @@ import Cheque from "./pages/Admin/Cheque/Cheque";
 import Company from "./pages/Admin/Company/Company";
 import Main from "./pages/User/Main/Main";
 import Login from "./pages/User/Login/Login";
-import Contact from "./pages/User/Contact/Contact";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -16,11 +15,6 @@ function App() {
       <Route exact path="/" element={<Navigate to="/main" />} />
       <Route exact path="/main" element={<UserLayout component={Main} />} />
       <Route exact path="/login" element={<UserLayout component={Login} />} />
-      <Route
-        exact
-        path="/contact"
-        element={<UserLayout component={Contact} />}
-      />
       <Route
         exact
         path="/logout"
