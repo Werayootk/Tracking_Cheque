@@ -15,7 +15,7 @@ const UserLayoutRoute = ({ children }) => {
         justifyContent="center"
         style={{ minHeight: "10vh" }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={3} style={{ width: "100%"}}>
           {children}
         </Grid>
       </Grid>
