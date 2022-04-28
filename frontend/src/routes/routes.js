@@ -1,45 +1,16 @@
-/**
- * Layout Client
- * Path : /
- * 1. /main
- * 2. /login
- * 3. /contact
- * Component
- * 1. not found data
- * 2. Navbar header
- * 3. footer
- * 4. search
- * 5. Table Detail
- * Layout Admin
- * Path : /admin
- * 1. /admin
- * 2. /company
- * 3. /cheque
- * 4. /logout
- * Component
- * 1. Sidebar
- * 2. Navbar header
- * 3. Tab1 control (Form create admin)
- * 4. Tab1 control (Table admin)
- * 5. Tab2 control (Form create company)
- * 6. Tab2 control (Table company)
- * 7. Tab3 control (Form create cheque)
- * 8. Tab3 control (Table cheque)
- * 9. search admin and filter
- * 10. search company and filter
- * 11. search cheque and filter
- * 12. Modal Form Edit Delete admin
- * 13. Modal Form Edit Delete company
- * 14. Modal Form Edit Delete cheque
- */
+import Admin from "../pages/Admin/Admin/Admin";
+import Cheque from "../pages/Admin/Cheque/Cheque";
+import Company from "../pages/Admin/Company/Company";
+import PersonIcon from '@mui/icons-material/Person';
+import BusinessIcon from '@mui/icons-material/Business';
+import PaymentIcon from '@mui/icons-material/Payment';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 const routes = [
-    { path: "/main" },
-    { path: "/login" },
-    { path: "/contact" },
-    { path: "/admin" },
-    { path: "/company" },
-    { path: "/cheque" },
-    { path: "/logout"},
+    { path: "/admin", name: "admin", component: Admin, icon: PersonIcon },
+    { path: "/company", name: "company", component: Company, icon: BusinessIcon },
+    { path: "/cheque", name: "cheque", component: Cheque, icon: PaymentIcon },
+    { path: "/logout", name: "logout", icon: LogoutIcon },
 ];
 
 export default routes;
