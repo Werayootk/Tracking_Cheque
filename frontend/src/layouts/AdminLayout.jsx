@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
-import "./AdminLayout.scss";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import routes from "../routes/routes";
-import { Route, Router, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
-
 var ps;
 
 const AdminLayoutRoute = ({ children }) => {
