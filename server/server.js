@@ -22,3 +22,26 @@
  * 16. GET /api/users/:id
  * 17. GET /api/users/:id/cheques
  */
+import express from 'express';
+import dotenv from 'dotenv';
+import connectDatabase from './config/MongoDb.js';
+import { errorHandler, notFound } from './Middleware/Errors.js';
+
+dotenv.config();
+connectDatabase();
+const app = express();
+app.use(express.json());
+
+// API ADMIN
+
+
+// API USER
+
+
+// ERROR HANDLER
+app.use(notFound);
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 3002;
+
+app.listen(PORT, console.log(`server started on port ${PORT}`));
