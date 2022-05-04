@@ -5,11 +5,13 @@
  * 3. DELETE /api/admin/users/:id/delete
  * 4. PUT /api/admin/users/:id/update
  * 5. POST /api/admin/users/create
+ * 
  * 6. GET /api/companies
  * 7. GET /api/companies/:id
  * 8. POST /api/companies/create
  * 9. PUT /api/companies/:id/update
  * 10. DELETE /api/companies/:id/delete
+ * 
  * 11. GET /api/cheques
  * 12. GET /api/cheques/:id
  * 13. POST /api/cheques/create
@@ -24,14 +26,25 @@
  */
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import connectDatabase from './config/MongoDb.js';
 import { errorHandler, notFound } from './Middleware/Errors.js';
 
 dotenv.config();
 connectDatabase();
 const app = express();
+app.use(cors());
+app.use(helmet());
+app.use(morgan('tiny'));
 app.use(express.json());
 
+// Test
+app.get('/', (req, res)  => {
+    res.send('Hello from Express.js server!')
+});
+  
 // API ADMIN
 
 
