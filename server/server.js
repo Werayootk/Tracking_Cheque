@@ -39,11 +39,6 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('tiny'));
 app.use(express.json());
-
-// Test
-app.get('/', (req, res)  => {
-    res.send('Hello from Express.js server!')
-});
   
 // API ADMIN
 
