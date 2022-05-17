@@ -52,6 +52,14 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
+// Delete user
+userSchema.pre("remove", async function (next) {
+  const company = await Company.findById(this.company);
+  company.users.pull(this._id);
+  await company.save();
+  next();
+});
+
 const User = mongoose.model("User", userSchema);
 
 export default User;
