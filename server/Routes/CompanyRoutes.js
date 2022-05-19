@@ -1,5 +1,6 @@
 import express from "express";
 import Company from "../Models/CompanyModel.js";
+import Cheque from "../Models/ChequeModel.js";
 import { admin, protect } from "../Middleware/AuthMiddleware.js";
 import { asyncHandler } from "../Middleware/AsyncHandler.js";
 
@@ -67,14 +68,18 @@ companyRouter.delete("/:id/delete", protect, admin, asyncHandler(async (req, res
     res.status(200).json({ message: "Company deleted" });
 }));
 
-export default companyRouter;
+// PUT: Add cheque to company
+companyRouter.put("/:id/cheque", protect, admin, asyncHandler(async (req, res) => {
+    const company = await Company.findById(req.params.id);
+    if (!company) {
+        res.status(404).json({ message: "Company not found" });
+        throw new Error("Company not found");
+    };
+    const { cheque } = req.body;
+    company.cheque.push(cheque);
+    await company.save();
+    res.status(200).json(company);
+}));
 
-/**
- * 1. Select Cheque update into Cheque entity
- *  * PUT [BODY : companyID, chequeID]
- * - select company By ID
- * - select cheque By ID
- * - insert cheque into company 
- * - ending
- */
+export default companyRouter;
  

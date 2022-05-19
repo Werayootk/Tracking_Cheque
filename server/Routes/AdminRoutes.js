@@ -3,6 +3,7 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import User from "../Models/UserModel.js";
 import { admin, protect } from "../Middleware/AuthMiddleware.js";
+import Company from "../Models/CompanyModel.js";
 
 const adminRouter = express.Router();
 const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -125,13 +126,19 @@ adminRouter.delete("/users/:id", protect, admin, asyncHandler(async (req, res) =
     }
 }));
 
-export default adminRouter;
+// PUT Company to user
+adminRouter.put("/users/:id/company", protect, admin, asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+        const { company } = req.body;
+        const companies = await Company.find(company);
+        user.company.push(companies);
+        await user.save();
+        return res.status(200).json(user);
+    } else {
+        res.status(400).json({ message: "User not found" });
+        throw new Error("User not found");
+    }
+}));
 
-/**
- * 1. Select User and Select Company update into Company entity
- * PUT [BODY : userID, companyID]
- * - select user By ID
- * - select company By ID
- * - insert company into user 
- * - ending
- */
+export default adminRouter;
