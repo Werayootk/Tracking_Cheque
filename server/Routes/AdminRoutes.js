@@ -126,3 +126,12 @@ adminRouter.delete("/users/:id", protect, admin, asyncHandler(async (req, res) =
 }));
 
 export default adminRouter;
+
+/**
+ * 1. Select User and Select Company update into Company entity
+ * PUT [BODY : userID, companyID]
+ * - select user By ID
+ * - select company By ID
+ * - insert company into user 
+ * - ending
+ */

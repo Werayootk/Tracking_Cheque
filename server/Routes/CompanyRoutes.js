@@ -66,5 +66,15 @@ companyRouter.delete("/:id/delete", protect, admin, asyncHandler(async (req, res
     await company.remove();
     res.status(200).json({ message: "Company deleted" });
 }));
+
 export default companyRouter;
+
+/**
+ * 1. Select Cheque update into Cheque entity
+ *  * PUT [BODY : companyID, chequeID]
+ * - select company By ID
+ * - select cheque By ID
+ * - insert cheque into company 
+ * - ending
+ */
  
