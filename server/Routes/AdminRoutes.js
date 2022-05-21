@@ -131,7 +131,7 @@ adminRouter.put("/users/:id/company", protect, admin, asyncHandler(async (req, r
     const user = await User.findById(req.params.id);
     if (user) {
         const { company } = req.body;
-        const companies = await Company.find(company);
+        const companies = await Company.findOne({companyName:company});
         user.company.push(companies);
         await user.save();
         return res.status(200).json(user);

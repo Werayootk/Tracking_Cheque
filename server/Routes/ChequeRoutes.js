@@ -1,7 +1,7 @@
 import express from "express";
 import Cheque from "../Models/ChequeModel.js";
 import { admin, protect } from "../Middleware/AuthMiddleware.js";
-import { asyncHandler } from "../Middleware/AsyncHandler.js";
+import asyncHandler from "express-async-handler";
 
 const chequeRouter = express.Router();
 

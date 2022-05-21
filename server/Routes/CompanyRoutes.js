@@ -2,7 +2,7 @@ import express from "express";
 import Company from "../Models/CompanyModel.js";
 import Cheque from "../Models/ChequeModel.js";
 import { admin, protect } from "../Middleware/AuthMiddleware.js";
-import { asyncHandler } from "../Middleware/AsyncHandler.js";
+import asyncHandler from "express-async-handler";
 
 const companyRouter = express.Router();
 
@@ -76,7 +76,8 @@ companyRouter.put("/:id/cheque", protect, admin, asyncHandler(async (req, res) =
         throw new Error("Company not found");
     };
     const { cheque } = req.body;
-    company.cheque.push(cheque);
+    const cheques = await Cheque.findOne({chequeNumber:cheque});
+    company.cheque.push(cheques);
     await company.save();
     res.status(200).json(company);
 }));
